@@ -1,7 +1,7 @@
 package com.moasanuma.sample_contributors
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.moasanuma.sample_contributors.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
