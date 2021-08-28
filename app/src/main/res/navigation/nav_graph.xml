@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/overviewFragment"
-        android:name="com.moasanuma.sample_contributors.ui.main.OverviewFragment"
+        android:name="com.moasanuma.sample_contributors.overview.OverviewFragment"
         android:label="overview"
         tools:layout="@layout/overview_fragment" />
 </navigation>

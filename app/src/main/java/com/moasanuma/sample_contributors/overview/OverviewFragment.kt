@@ -1,4 +1,4 @@
-package com.moasanuma.sample_contributors.ui.main
+package com.moasanuma.sample_contributors.overview
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,11 +10,7 @@ import com.moasanuma.sample_contributors.R
 
 class OverviewFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = OverviewFragment()
-    }
-
-    private lateinit var viewModel: OverviewViewModel
+    private val viewModel by lazy { ViewModelProvider(this).get(OverviewViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,11 +18,5 @@ class OverviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.overview_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(OverviewViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 }

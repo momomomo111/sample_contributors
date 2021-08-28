@@ -1,7 +1,5 @@
-package com.moasanuma.sample_contributors.ui.main
+package com.moasanuma.sample_contributors.overview
 
 import androidx.lifecycle.ViewModel
 
-class OverviewViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
-}
+class OverviewViewModel : ViewModel()
