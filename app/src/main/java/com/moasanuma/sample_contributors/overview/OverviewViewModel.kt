@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moasanuma.sample_contributors.network.ContributorsApi
+import com.moasanuma.sample_contributors.network.ContributorsProperty
 import kotlinx.coroutines.launch
 
 class OverviewViewModel : ViewModel() {
@@ -14,6 +15,11 @@ class OverviewViewModel : ViewModel() {
     val response: LiveData<String>
         get() = _response
 
+    private val _properties = MutableLiveData<List<ContributorsProperty>>()
+
+    val properties: LiveData<List<ContributorsProperty>>
+        get() = _properties
+
     init {
         getContributorsProperties()
     }
@@ -21,10 +27,10 @@ class OverviewViewModel : ViewModel() {
     private fun getContributorsProperties() {
         viewModelScope.launch {
             try {
-                val listResult = ContributorsApi.retrofitService.getProperties()
-                _response.postValue(listResult.toString())
+                _properties.value = ContributorsApi.retrofitService.getProperties()
+                _response.value = "Success: Mars properties retrieved"
             } catch (e: Exception) {
-                _response.postValue("Failure: ${e.message}")
+                _response.value = "Failure: ${e.message}"
             }
         }
     }

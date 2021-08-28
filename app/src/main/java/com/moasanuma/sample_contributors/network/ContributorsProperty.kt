@@ -1,10 +1,12 @@
 package com.moasanuma.sample_contributors.network
 
+import com.squareup.moshi.Json
+
 data class ContributorsProperty(
     val login: String,
     val id: Int,
     val node_id: String,
-    val avatar_url: String,
+    @Json(name = "avatar_url") val avatarImgUrl: String,
     val gravatar_id: String,
     val url: String,
     val html_url: String,

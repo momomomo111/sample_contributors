@@ -20,6 +20,8 @@ class OverviewFragment : Fragment() {
         val binding = OverviewFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewmodel = viewModel
+        binding.photosGrid.adapter = PhotoGridAdapter()
+
         return binding.root
     }
 }
