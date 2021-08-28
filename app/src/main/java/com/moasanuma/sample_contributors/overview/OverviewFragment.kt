@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.moasanuma.sample_contributors.R
+import com.moasanuma.sample_contributors.databinding.OverviewFragmentBinding
 
 class OverviewFragment : Fragment() {
 
@@ -17,6 +17,9 @@ class OverviewFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.overview_fragment, container, false)
+        val binding = OverviewFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewmodel = viewModel
+        return binding.root
     }
 }
