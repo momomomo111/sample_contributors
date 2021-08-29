@@ -10,6 +10,8 @@ import kotlinx.coroutines.launch
 
 class OverviewViewModel : ViewModel() {
 
+    enum class ContributorsApiStatus { LOADING, ERROR, DONE }
+
     private val _response = MutableLiveData<String>()
 
     val response: LiveData<String>
@@ -20,17 +22,23 @@ class OverviewViewModel : ViewModel() {
     val properties: LiveData<List<ContributorsProperty>>
         get() = _properties
 
+    private val _status = MutableLiveData<ContributorsApiStatus>()
+
+    val status: LiveData<ContributorsApiStatus>
+        get() = _status
+
     init {
         getContributorsProperties()
     }
 
     private fun getContributorsProperties() {
         viewModelScope.launch {
+            _status.value = ContributorsApiStatus.LOADING
             try {
                 _properties.value = ContributorsApi.retrofitService.getProperties()
-                _response.value = "Success: Mars properties retrieved"
+                _status.value = ContributorsApiStatus.DONE
             } catch (e: Exception) {
-                _response.value = "Failure: ${e.message}"
+                _status.value = ContributorsApiStatus.ERROR
             }
         }
     }
