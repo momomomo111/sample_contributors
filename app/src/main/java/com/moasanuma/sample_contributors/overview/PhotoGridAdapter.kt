@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.moasanuma.sample_contributors.databinding.GridViewItemBinding
 import com.moasanuma.sample_contributors.network.ContributorsProperty
 
-class PhotoGridAdapter : ListAdapter<ContributorsProperty,
-    PhotoGridAdapter.ContributorsPropertyViewHolder>(DiffCallback) {
+class PhotoGridAdapter(private val onClickListener: OnClickListener) :
+    ListAdapter<ContributorsProperty,
+        PhotoGridAdapter.ContributorsPropertyViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): PhotoGridAdapter.ContributorsPropertyViewHolder {
+    ): ContributorsPropertyViewHolder {
         return ContributorsPropertyViewHolder(
             GridViewItemBinding.inflate(
                 LayoutInflater.from(parent.context)
@@ -22,10 +23,13 @@ class PhotoGridAdapter : ListAdapter<ContributorsProperty,
     }
 
     override fun onBindViewHolder(
-        holder: PhotoGridAdapter.ContributorsPropertyViewHolder,
+        holder: ContributorsPropertyViewHolder,
         position: Int
     ) {
         val contributorsProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(contributorsProperty)
+        }
         holder.bind(contributorsProperty)
     }
 
@@ -54,5 +58,9 @@ class PhotoGridAdapter : ListAdapter<ContributorsProperty,
             binding.property = marsProperty
             binding.executePendingBindings()
         }
+    }
+
+    class OnClickListener(val clickListener: (contributorsProperty: ContributorsProperty) -> Unit) {
+        fun onClick(contributorsProperty: ContributorsProperty) = clickListener(contributorsProperty)
     }
 }

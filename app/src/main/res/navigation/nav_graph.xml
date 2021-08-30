@@ -10,5 +10,17 @@
         android:id="@+id/overviewFragment"
         android:name="com.moasanuma.sample_contributors.overview.OverviewFragment"
         android:label="overview"
-        tools:layout="@layout/overview_fragment" />
+        tools:layout="@layout/overview_fragment">
+        <action
+            android:id="@+id/action_overviewFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.moasanuma.sample_contributors.detail.DetailFragment"
+        android:label="DetailFragment">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.moasanuma.sample_contributors.network.ContributorsProperty" />
+    </fragment>
 </navigation>

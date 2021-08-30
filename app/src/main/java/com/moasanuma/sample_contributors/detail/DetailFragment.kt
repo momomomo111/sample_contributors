@@ -8,8 +8,11 @@ import androidx.fragment.app.Fragment
 import com.moasanuma.sample_contributors.databinding.DetailFragmentBinding
 
 class DetailFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         @Suppress("UNUSED_VARIABLE")
         val application = requireNotNull(activity).application

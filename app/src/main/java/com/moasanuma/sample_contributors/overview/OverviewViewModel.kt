@@ -13,19 +13,20 @@ class OverviewViewModel : ViewModel() {
     enum class ContributorsApiStatus { LOADING, ERROR, DONE }
 
     private val _response = MutableLiveData<String>()
-
     val response: LiveData<String>
         get() = _response
 
     private val _properties = MutableLiveData<List<ContributorsProperty>>()
-
     val properties: LiveData<List<ContributorsProperty>>
         get() = _properties
 
     private val _status = MutableLiveData<ContributorsApiStatus>()
-
     val status: LiveData<ContributorsApiStatus>
         get() = _status
+
+    private val _navigateToSelectedProperty = MutableLiveData<ContributorsProperty>()
+    val navigateToSelectedProperty: LiveData<ContributorsProperty>
+        get() = _navigateToSelectedProperty
 
     init {
         getContributorsProperties()
@@ -41,5 +42,11 @@ class OverviewViewModel : ViewModel() {
                 _status.value = ContributorsApiStatus.ERROR
             }
         }
+    }
+    fun displayPropertyDetails(contributorsProperty: ContributorsProperty) {
+        _navigateToSelectedProperty.value = contributorsProperty
+    }
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
     }
 }
