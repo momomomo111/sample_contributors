@@ -1,7 +1,10 @@
 package com.moasanuma.sample_contributors.network
 
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
 
+
+@Parcelize
 data class ContributorsProperty(
     val login: String,
     val id: Int,
