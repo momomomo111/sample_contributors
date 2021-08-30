@@ -57,17 +57,17 @@ fun bindStatus(
     }
 }
 
-@BindingAdapter("app:userName")
-fun setUserName(textView: TextView, text: String) {
+@BindingAdapter("userName")
+fun bindUserName(textView: TextView, text: String) {
     textView.text = textView.context.getString(R.string.user_name, text)
 }
 
-@BindingAdapter("app:type")
-fun setType(textView: TextView, text: String) {
+@BindingAdapter("type")
+fun bindType(textView: TextView, text: String) {
     textView.text = textView.context.getString(R.string.type, text)
 }
 
-@BindingAdapter("app:contributionsNum")
-fun setContributionsNum(textView: TextView, num: Int) {
+@BindingAdapter("contributionsNum")
+fun bindContributionsNum(textView: TextView, num: Int) {
     textView.text = textView.context.getString(R.string.contributions_num, num.toString())
 }
