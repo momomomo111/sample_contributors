@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">sample_contributors</string>
+    <string name="user_name">UserName: \n %s</string>
+    <string name="type">Type: %s</string>
+    <string name="contributions_num">contributions: %s</string>
 </resources>

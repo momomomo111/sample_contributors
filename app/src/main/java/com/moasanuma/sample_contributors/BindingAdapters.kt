@@ -57,16 +57,17 @@ fun bindStatus(
     }
 }
 
-@BindingAdapter("android:intText")
-fun bindText(
-    textView: TextView,
-    data: Int?
-) {
-    textView.text = data.toString()
+@BindingAdapter("app:userName")
+fun setUserName(textView: TextView, text: String) {
+    textView.text = textView.context.getString(R.string.user_name, text)
 }
 
-// @BindingAdapter("set_param", "set_type")
-// fun setParamText(view: TextView, text: Int?, @StringRes id: Int) {
-//    // Some checks removed for clarity
-//    view.text = view.context.getString(id, text.toString())
-// }
+@BindingAdapter("app:type")
+fun setType(textView: TextView, text: String) {
+    textView.text = textView.context.getString(R.string.type, text)
+}
+
+@BindingAdapter("app:contributionsNum")
+fun setContributionsNum(textView: TextView, num: Int) {
+    textView.text = textView.context.getString(R.string.contributions_num, num.toString())
+}

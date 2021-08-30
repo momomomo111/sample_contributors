@@ -37,10 +37,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@{viewModel.selectedProperty.login}"
                 android:textSize="39sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                app:userName="@{viewModel.selectedProperty.login}"
                 tools:text="NAME" />
 
             <TextView
@@ -48,10 +48,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@{viewModel.selectedProperty.type}"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/property_name_text"
+                app:type="@{viewModel.selectedProperty.type}"
                 tools:text="User" />
 
             <TextView
@@ -59,13 +59,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:intText="@{viewModel.selectedProperty.contributions}"
                 android:textSize="20sp"
+                app:contributionsNum="@{viewModel.selectedProperty.contributions}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/property_type_text"
                 tools:text="100" />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
