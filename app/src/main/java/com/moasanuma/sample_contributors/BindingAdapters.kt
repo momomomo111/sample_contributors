@@ -2,6 +2,7 @@ package com.moasanuma.sample_contributors
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -55,3 +56,17 @@ fun bindStatus(
         }
     }
 }
+
+@BindingAdapter("android:intText")
+fun bindText(
+    textView: TextView,
+    data: Int?
+) {
+    textView.text = data.toString()
+}
+
+// @BindingAdapter("set_param", "set_type")
+// fun setParamText(view: TextView, text: Int?, @StringRes id: Int) {
+//    // Some checks removed for clarity
+//    view.text = view.context.getString(id, text.toString())
+// }

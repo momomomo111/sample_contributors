@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.moasanuma.sample_contributors.detail.DetailViewModel" />
@@ -25,33 +26,46 @@
                 android:layout_width="0dp"
                 android:layout_height="266dp"
                 android:scaleType="centerCrop"
+                app:imageUrl="@{viewModel.selectedProperty.avatarImgUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:imageUrl="@{viewModel.selectedProperty.avatarImgUrl}"
                 tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/property_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{viewModel.selectedProperty.login}"
+                android:textSize="39sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                tools:text="NAME" />
 
             <TextView
                 android:id="@+id/property_type_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/black"
-                android:textSize="39sp"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.selectedProperty.type}"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                app:layout_constraintTop_toBottomOf="@+id/property_name_text"
                 tools:text="User" />
 
             <TextView
-                android:id="@+id/price_contributions_text"
+                android:id="@+id/property_contributions_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/black"
+                android:intText="@{viewModel.selectedProperty.contributions}"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/property_type_text"
                 tools:text="100" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -24,8 +24,8 @@ class OverviewViewModel : ViewModel() {
     val status: LiveData<ContributorsApiStatus>
         get() = _status
 
-    private val _navigateToSelectedProperty = MutableLiveData<ContributorsProperty>()
-    val navigateToSelectedProperty: LiveData<ContributorsProperty>
+    private val _navigateToSelectedProperty = MutableLiveData<ContributorsProperty?>()
+    val navigateToSelectedProperty: LiveData<ContributorsProperty?>
         get() = _navigateToSelectedProperty
 
     init {

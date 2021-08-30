@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/overviewFragment"
         android:name="com.moasanuma.sample_contributors.overview.OverviewFragment"
-        android:label="overview"
+        android:label="OverView"
         tools:layout="@layout/overview_fragment">
         <action
             android:id="@+id/action_overviewFragment_to_detailFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.moasanuma.sample_contributors.detail.DetailFragment"
-        android:label="DetailFragment">
+        android:label="Detail">
         <argument
             android:name="selectedProperty"
             app:argType="com.moasanuma.sample_contributors.network.ContributorsProperty" />
