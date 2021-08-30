@@ -1,7 +1,10 @@
 package com.moasanuma.sample_contributors.network
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class ContributorsProperty(
     val login: String,
     val id: Int,
@@ -22,4 +25,4 @@ data class ContributorsProperty(
     val type: String,
     val site_admin: Boolean,
     val contributions: Int,
-)
+) : Parcelable

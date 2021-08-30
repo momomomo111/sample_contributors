@@ -2,6 +2,7 @@ package com.moasanuma.sample_contributors
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -54,4 +55,19 @@ fun bindStatus(
             statusImageView.visibility = View.GONE
         }
     }
+}
+
+@BindingAdapter("userName")
+fun bindUserName(textView: TextView, text: String) {
+    textView.text = textView.context.getString(R.string.user_name, text)
+}
+
+@BindingAdapter("type")
+fun bindType(textView: TextView, text: String) {
+    textView.text = textView.context.getString(R.string.type, text)
+}
+
+@BindingAdapter("contributionsNum")
+fun bindContributionsNum(textView: TextView, num: Int) {
+    textView.text = textView.context.getString(R.string.contributions_num, num.toString())
 }
