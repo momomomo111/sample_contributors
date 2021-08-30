@@ -65,6 +65,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/property_type_text"
                 tools:text="100" />
 
+            <TextView
+                android:id="@+id/property_followers_url_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autoLink="all"
+                android:text="@{viewModel.selectedProperty.html_url}"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/property_contributions_text"
+                tools:text="https://" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
